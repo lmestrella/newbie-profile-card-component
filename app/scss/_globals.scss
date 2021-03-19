@@ -1,0 +1,87 @@
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: "Kumbh Sans", sans-serif;
+  background-color: $darkCyan;
+  overflow: inherit;
+
+  &::before {
+    @include absolute-block("", $bg-circle-size, $bg-circle-size);
+    right: 45%;
+    bottom: 45%;
+    background-image: url("../../images/bg-pattern-top.svg");
+    background-position: left bottom;
+    background-size: 100%;
+    transition: 350ms right ease-out;
+    @include mq(large) {
+      right: 50%;
+    }
+  }
+  &::after {
+    @include absolute-block("", $bg-circle-size, $bg-circle-size);
+    top: 50%;
+    left: 40%;
+    background-image: url("../../images/bg-pattern-bottom.svg");
+    background-position: right top;
+    background-size: 100%;
+    transition: 350ms left ease-out;
+    @include mq(large) {
+      left: 50%;
+    }
+  }
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+// Typography
+h1,
+h2,
+h3 {
+  margin: 0;
+  padding: 0;
+  &:not(:first-child) {
+    margin-top: 0.625em;
+  }
+}
+h1 {
+  font-size: $font-med;
+}
+h2 {
+  font-size: $font-sm;
+}
+h3 {
+  font-size: $font-xsm;
+}
+
+// Layout
+.flex {
+  display: flex;
+  &-jc-c {
+    justify-content: center;
+  }
+  &-jc-sa {
+    justify-content: space-around;
+  }
+  &-ai-c {
+    align-items: center;
+  }
+  &-col {
+    flex-direction: column;
+  }
+  &-ai-st {
+    align-items: stretch;
+  }
+}
+.text-center {
+  text-align: center;
+}

@@ -1,0 +1,73 @@
+@import "variables";
+@import "mixins";
+@import "globals";
+
+.card {
+  min-width: 19.375em;
+  margin: 0 2em;
+  background: white;
+  box-shadow: 0 0 2em 1em rgba(black, 0.1);
+  border-radius: 1em;
+  overflow: hidden;
+  z-index: 999;
+
+  &__header {
+    position: relative;
+    > img {
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+  &__photo {
+    position: absolute;
+    bottom: -($card-photo-size / 2);
+    left: 50%;
+    transform: translate(-50%, -5px);
+    width: $card-photo-size;
+    height: $card-photo-size;
+    border-radius: 50%;
+    border: 5px solid white;
+    overflow: hidden;
+
+    > img {
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+  &__details {
+    margin-top: ($card-photo-size / 2) + 1.25em;
+    margin-bottom: 1.25em;
+  }
+  &__name {
+    > span {
+      margin-left: 0.3125em;
+      font-weight: 400;
+      color: $darkGrayishBlue;
+    }
+  }
+  &__country {
+    font-weight: 400;
+    color: $darkGrayishBlue;
+  }
+  &__stats {
+    padding: 1.5625em;
+    border-top: 1px solid rgba($darkGray, 0.25);
+  }
+  &__stat {
+    > h3 {
+      font-weight: 400;
+      letter-spacing: 0.125em;
+      color: $darkGrayishBlue;
+    }
+  }
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  position: absolute;
+  bottom: 1em;
+  > a {
+    color: hsl(228, 45%, 44%);
+  }
+}

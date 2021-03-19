@@ -1,0 +1,18 @@
+$breakpoints: (
+  "small": "23.4375em",
+  "medium": "64em",
+  "large": "90em",
+);
+@mixin mq($size) {
+  @media (min-width: map-get($breakpoints, $size)) {
+    @content;
+  }
+}
+@mixin absolute-block($content, $width, $height) {
+  // Default style for ::after and ::before
+  content: $content;
+  position: absolute;
+  display: block;
+  width: $width;
+  height: $height;
+}
